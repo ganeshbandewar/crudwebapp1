@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data operation</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Header -->
+        <header id="header">
+            <nav>
+                <div class="container">
+                    <div class="text-center">
+                        <a href="/" class="nav-brand text-dark">This is ganesh"s crud application to form instance data in database mongodb it is made up using nodejs</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    <!-- /Header -->
+
+    
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/adduser" class="border-shadow">
+                    <span class="text-gradient">addnew user  </i></span>
+                </a>
+            </div>
+
+            <!-- form handling -->
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Married</th>
+                            <th>Email</th>
+                            <th>College</th>
+                            <th>Degree</th>
+                            <th>Year</th>
+                            <th>operations</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                         
+<% for(var i = 0; i < users.length; i++) { %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td><%= users[i].name %></td>
+        <td><%= users[i].gender %></td>
+        <td><%= users[i].married %></td>
+        <td><%= users[i].email %></td>
+        <td><%= users[i].college %></td>
+        <td><%= users[i].degree %></td>
+        <td><%= users[i].year %></td>
+
+        
+        <td>
+            <a href="/updateuser?id=<%= users[i]._id%>" class="btn border-shadow update">
+                <span class="text-gradient">edit</i></span>
+            </a>
+            <a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+                <span class="text-gradient">delete</i></span>
+            </a>
+        </td>
+    </tr>
+    <% } %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+<!-- /Main Site -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>
+
+
